@@ -1,0 +1,19 @@
+.navbar-light .navbar-toggler-icon {
+}
+
+.navbar-light .navbar-toggler-icon {
+}
+
+a { color: inherit; } 
+
+a:hover {
+  color: black ;
+  background-color: white ;
+}
+
+.bigger-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}

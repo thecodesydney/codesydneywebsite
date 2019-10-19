@@ -1,2 +1,1 @@
-# codesydneywebsite
-Code.Sydney Legacy Website
+# mock-up

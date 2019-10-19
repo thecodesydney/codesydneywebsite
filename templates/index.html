@@ -1,0 +1,420 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+  <!-- SHOWCASE -->
+  <section id="showcase">
+
+    <div class="primary-overlay text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mt-5">
+        
+            <h1 class="display-3 mt-5 pt-5 top-spacing" style="font-family:Montserrat;">
+              App Now. Pay Later.
+            </h1>
+        
+           </div>
+         </div>
+      </div>    
+    </div>
+
+  </section>
+
+  <!-- Our Services-->
+  <section id="services" class="my-5 text-center bg-info spacing-up">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="mb-5">
+              <h1 class="text-primary pb-3 mt-5">
+                <!-- Our Services --> 
+              </h1>
+            </div>
+          </div>
+      </div>  
+  </section> 
+
+  <section id="home-icons" class="py-5 move-up bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 text-center">
+          <img src="{{ url_for('static', filename='img/001-responsive.png') }}" width="80px" class="mb-2 img-fluid">
+          <h4>Web Development</h4>
+          <p class="service-text">We help individuals, startups and established organisations alike in building bespoke web applications 
+            for their work or business. It can be as simple as informational websites or as complex as business 
+            process workflow applications.</p>
+        </div>
+        <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/006-mobile-app.png') }}" width="80px" class="mb-2 img-fluid">
+          <h4>Mobile Development</h4>
+          <p class="service-text">Bring your business closer to your customers. We can help you develop a mobile App.</p>
+        </div>
+        <div class="col-md-4 mb-4 text-center">
+          <img src="{{ url_for('static', filename='img/002-checklist.png') }}" width="80px" class="mb-2 img-fluid">
+          <h4>Address Validation</h4>
+          <p class="service-text">We use Mastersoft Group's Harmony software to help customers in Australia and New Zealand cleanse
+              and deduplicate address data as part of their customer information data quality initiative in the 
+              organisation. Harmony address validation is also available for Web, Salesforce, 
+              WordPress and Ecommerce(eg. Shopify, Magento, WooCommerce).</p>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/005-login.png') }}" width="80px" class="mb-2 img-fluid">
+            <h4>Email and Phone Validation</h4>
+            <p class="service-text">Using Mastersoft Group solutions, we can assist businesses in
+              Australia and New Zealand in validating their customer emails and phone numbers.</p>
+          </div>
+          <div class="col-md-4 mb-4 text-center">
+              <img src="{{ url_for('static', filename='img/004-online-shop.png') }}" width="80px" class="mb-2 img-fluid">
+            <h4>WordPress and WooCommerce</h4>
+            <p class="service-text">We can help build and maintain WordPress or WooCommerce sites through our developer partner.</p>
+          </div>
+          <div class="col-md-4 mb-4 text-center">
+              <img src="{{ url_for('static', filename='img/003-man.png') }}" width="80px" class="mb-2 img-fluid">
+            <h4>Free Consultation</h4>
+            <p class="service-text">We offer no obligation free consultation so feel free to have a chat with us and discuss your requirements.</p>
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- Services Ends --> 
+
+  <!-- Meet The Team -->
+  <section id="services" class="my-5 text-center bg-info spacing-up">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="mb-5">
+              <h1 class="text-primary pb-3 mt-5">
+                Meet The Team
+              </h1>
+            </div>
+          </div>
+      </div>  
+  </section> 
+
+  <div class="spacing"></div>    
+
+  <section id="authors" class="my-5 text-center bg-light">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/engramar.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Engramar Bollas</h4>
+              <h5 class="text-muted">Director</h5>
+              <p class="team-text">Engramar's raison d'etre is to serve. A believer of servant leadership. He is passionate in providing service excellence to customers and ensuring people, culture, processes and technology support the same initiative.
+Engramar has worked in the IT industry for over 23 years. Having worked in Asia, the Middle East and Australia, Engramar has deep expertise in all aspects of software development lifecycle including business requirements analysis, systems design and development, product testing, release management, end-user training, pre-sales and post-implementation support.
+Engramar is working for GBG (Mastersoft Group) as their Head of Customer Support and Testing team. Engramar is also the current Director of Code.Sydney, an organisation which helps beginner programmers and novice data analysts showcase their newfound skills. Engramar has obtained a degree in Mathematics major in Computer Science from the Pontifical and Royal University of Santo Tomas in Manila.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/engramarbollas/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/armschiu.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Armstrong Chiu</h4>
+              <h5 class="text-muted">Developer Partner</h5>
+              <p class="team-text">Armstrong has 14 years of experience in Web Design and Development, 8 of which are frontend focused. 
+                He is also actively pursuing his interest in 3D rendering and animation and has been doing a lot of 
+                WebGL projects ever since. 
+                Armstrong has a degree in Mathematics major in Computer Science and has over 20 years of 
+                experience in the IT field starting out in the field of mainframe programming and product testing.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/armstrong-chiu-29646a44/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/tony.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Tony Johnson</h4>
+              <h5 class="text-muted">Software Engineer / Systems Administrator</h5>
+              <p class="team-text">Despite having a Degree in Prehistory and Archaeology, Tony has survived 30 years in various IT 
+                careers; from hardware sales and service, support desk, linux systems administration, 
+                management, consultancy, and software development. 
+                He began coding commercially 8 years ago in Java for Structural Geology project, 
+                and moved on to full-stack web development. 
+                He has completed the Free Code Camp front-end and back-end curriculum for JavaScript, 
+                React/Redux, Node/Express, MongoDB and GraphQL. 
+                Tony is an active participant in Free Code Camp Sydney meetups. Currently, 
+                he is contracted as Project Manager for McLowd Financial Services Marketplace, 
+                a cloud-based software company.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/tony-johnson-53995413/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/prom.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Promie Yutasane</h4>
+              <h5 class="text-muted">Software Engineer</h5>
+              <p class="team-text">Promie Yutasane is currently working as an Accounts and Data Analyst and a part-time 
+                Master of IT student at UNSW with Data Science and Artificial Intelligence as majors. 
+                He specialises in data analysis and visualisation, working with technologies such as 
+                Python, SQL, Javascript and VBA. Promie has completed FreeCodeCamp's front-end curriculum and 
+                currently exploring full stack development. Promie is passionate with both the design 
+                component and the logical aspect of programming. 
+                He is looking forward to contributing to the community by sharing the knowledge to 
+                people who want to start their journey with web development.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/promie-yutasane-74a024140/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Mentors Section 1 -->
+  <div class="spacing"></div>    
+
+  <section id="authors" class="my-5 text-center bg-light">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/gagan.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Gagan Shrestha</h4>
+              <h5 class="text-muted">Mentor</h5>
+              <p class="team-text">Gagan is a Software Testing Professional with over 12 years of experience in the testing domain. Gagan's key areas of expertise includes understanding complex business requirements and formulating robust test strategies, developingtest plan, test cases and automated test solutions, test case execution, defect management, and product support. His interest for Python started with test automation converting test scripts from Perl into Python. With discovery of the strength of Python to achieve significant efficiency and effectiveness, his passion has increased and he is in continuous pursuit of mastering the language. He is very excited to be part of Code.Sydney and support all who is in journey of learning Python.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/gagan-shrestha-0aaaa84/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/bin.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Bin Liu</h4>
+              <h5 class="text-muted">Mentor</h5>
+              <p class="team-text">Bin has ten years working experience as a Software Developer and Business Intelligence consultant. His development career started with Java. Recently he is using some script languages like Python, Perl and JavaScript and actively participating as the lead developer of Census+ project. Bin has good sense in coding and is good at learning new technologies. He is interested in Python because it can be applied to many technological areas, such as web application development, data science and so on. He would like to make progress with others who are also interested in Python-related technologies.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/bin-liu-308b841a/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+
+              <img src="{{ url_for('static', filename='img/nino.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Francisco Liwa</h4>
+              <h5 class="text-muted">Software Engineer</h5>
+              <p class="team-text">Francisco has more than 10 years of experience in Software Engineering in various domains. An Ex-IBM Engineer. Earned his Masters of Knowledge Engineering degree at National University of Singapore (NUS). He is a polyglot(C/C++, Node.js, Python and Elixir) and dabbles in data science techniques and IoT (Arduino, Raspberry Pi, Microbit). Active in the community with two meetups organized in Cebu City (IoT Cebu, Big Data and Data Science Cebu). A startup founder and open source advocate.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/nifrali/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/jaydn.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Jaydn Chou</h4>
+              <h5 class="text-muted">Software Engineer</h5>
+              <p class="team-text">A medical scientist turned self-taught developer turned software engineer. Currently working at Arbor Networks using ReactJS, GraphQL/Apollo, Elasticsearch and Node to deliver products that present customers with a globally-scoped view of the internet threat landscape. Jaydn is passionate about minimal design. Her design approach is heavily influenced by Don Draper - "Make it simple, yet significant". An advocate of lifelong learning, design thinking and remote working. Also a JavaScript workshop facilitator and mentor at MusesJS (formerly NodeGirls). Excited to help newcomers embark on their coding journey as well as helping each other progress through FreeCodeCamp's full-stack curriculum.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/jaydnchou/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+ <!-- Mentors Section 1 -->
+  <div class="spacing"></div>
+
+  <section id="authors" class="my-5 text-center bg-light">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/kevin.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Kevin Foong</h4>
+              <h5 class="text-muted">Software Engineer</h5>
+              <p class="team-text">Kevin has over 20 years of working experience in a variety of IT related areas including software development, web design and information management. The latter in the area of library and information science. He is currently working as a System Administrator for NSW Health where he mainly utilises SQL for report generation. He recently started learning Python, at first because he wanted to get into data science, but then found Flask along the way. He now considers himself a Python and Flask enthusiast and is interested in sharing his knowledge and learning from others.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/kevin-foong-044794/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/june.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>June Kongyang</h4>
+              <h5 class="text-muted">Software Engineer</h5>
+              <p class="team-text">June Kongyang is currently a design and development engineer. She has broad experience in design, development and testing of network security systems. June started coding using C and C++ for robotic control automation such as sensors and micro-controllers. June graduated with a masters degree in Electrical Engineering. She joined Code.Sydney due to her interest in both Python and JavaScript programming languages. She found both languages pretty handy on increasing work productivity. She is keen to share her knowledge to anyone who wants to learn coding.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://au.linkedin.com/in/june-kongyang" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="spacing"></div>
+
+  <!-- Friends -->
+  <section id="partners" class="my-5 text-center bg-info spacing-up">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="mb-5">
+              <h1 class="text-primary pb-3 mt-5">
+                Friends
+              </h1>
+            </div>
+          </div>
+        </div>  
+      </section>   
+
+    <div class="spacing"></div>  
+  
+    <section id="home-icons" class="py-5 move-up-more bg-light">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/mastersoft.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="https://www.mastersoftgroup.com/" target="_blank">Mastersoft Group</a></h4>
+            <p class="service-text">Mastersoft Group (a GBG company) is behind the development of Harmony software. Mastersoft has been a leading provider of data quality
+              and address validation software services to blue-chip companies and government 
+              agencies across Australia and New Zealand for over 35 years.</p>
+          </div>
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/actura.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="http://www.actura.com.au/" target="_blank">Actura Australia</a></h4>
+            <p class="service-text">Actura empowers youth to master the critical STEAM related skill sets for their future success.</p>
+          </div>
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/fcc.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="https://www.freecodecamp.org/" target="_blank">Free Code Camp</a></h4>
+            <p class="service-text">Free Code Camp is an open source community that helps you learn to code, build pro bono projects for nonprofits, and get a job as a developer.</p>
+          </div>
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/prettyprinted.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="https://prettyprinted.com/" target="_blank">Prettyprinted</a></h4>
+            <p class="service-text">Prettyprinted is a specialised Flask online training course provider. They are our education partner for our Flask training.</p>
+          </div>
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/thelittlespace.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="https://thelittlespace.com.au/" target="_blank">The Little Space</a></h4>
+            <p class="service-text">The Little Space is a boutique co-working space in Bondi Junction. The home of Code.Sydney's Sunday trainings.</p>
+          </div>
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/legal123.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="http://www.1shoppingcart.com/app/?af=1687312" target="_blank">Legal123 Pty Ltd</a></h4>
+            <p class="service-text">Legal123 Pty Ltd offers off-the-shelf legal templates perfect for startups.</p>
+          </div>
+
+          <div class="col-md-4 mb-4 text-center">
+            <img src="{{ url_for('static', filename='img/Calo.png') }}" width="250px" class="mb-2 img-fluid" style="height:95px;width:355px;">
+            <h4><a href="http://www.caloservices.com/" target="_blank">CALO Services</a></h4>
+            <p class="service-text">CALO Services provides software solutions to fleet and education industry. Code.Sydney is helping CALO develop applications related to the education industry.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  <!-- Partners Ends -->
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/smart-forms.min.js"></script>
+  <!-- Contact Ends -->
+
+{% endblock content %}
