@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code.Sydney</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Footer-Basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Header-Dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Highlight-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Projects-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Projects-Horizontal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Team-Clean.css') }}">
+</head>
+
+<body>
+
+    <div style="color:#636363;">
+        <h2 class="text-center" style="font-size:60px;color:#37434d;">Sydney Volunteer Programmers</h2>
+    </div>
+    <div>
+        <br/>
+        <h2 class="text-center" style="font-size:25px;">1st Place Winner, Vibewire's Hack4FI (Financial Inclusion) 2018</h2>
+        <h2 class="text-center" style="font-size:25px;">3rd Place Winner, Vibewire's Hack4Homelessness 2017</h2>
+    </div>
+
+    <div>
+        <h2 class="text-center" style="font-size:65px;color:#505e6c;"><a href="{{ url_for('fccleaderboard') }}">FCC Leaderboard</a></h2>
+    </div>
+
+    <div>
+ <h3 style="margin-left:100px">My Free Code Camp Journey</h3>
+ <form method="POST" action="{{ url_for('fccleaderboardupdate') }}">
+      <table style="font-size:12px;margin-left:100px">
+        <tr>
+          <td>{{ form.Name.label }}: {{ Name }}</td>
+        </tr>
+      </table>
+      <table style="font-size:12px;margin-left:100px">
+        <tr>
+          <td>{{ form.A1.label }}</td>
+          <td>{{ form.A1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A2.label }}</td>
+          <td>{{ form.A2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A3.label }}</td>
+          <td>{{ form.A3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A4.label }}</td>
+          <td>{{ form.A4 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A5.label }}</td>
+          <td>{{ form.A5 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A6.label }}</td>
+          <td>{{ form.A6 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A7.label }}</td>
+          <td>{{ form.A7 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.A8.label }}</td>
+          <td>{{ form.A8 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B1.label }}</td>
+          <td>{{ form.B1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B2.label }}</td>
+          <td>{{ form.B2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B3.label }}</td>
+          <td>{{ form.B3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B4.label }}</td>
+          <td>{{ form.B4 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B5.label }}</td>
+          <td>{{ form.B5 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B6.label }}</td>
+          <td>{{ form.B6 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B7.label }}</td>
+          <td>{{ form.B7 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B8.label }}</td>
+          <td>{{ form.B8 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B9.label }}</td>
+          <td>{{ form.B9 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.B10.label }}</td>
+          <td>{{ form.B10 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C1.label }}</td>
+          <td>{{ form.C1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C2.label }}</td>
+          <td>{{ form.C2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C3.label }}</td>
+          <td>{{ form.C3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C4.label }}</td>
+          <td>{{ form.C4 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C5.label }}</td>
+          <td>{{ form.C5 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C6.label }}</td>
+          <td>{{ form.C6 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.C7.label }}</td>
+          <td>{{ form.C7 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.D1.label }}</td>
+          <td>{{ form.D1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.D2.label }}</td>
+          <td>{{ form.D2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.D3.label }}</td>
+          <td>{{ form.D3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.E1.label }}</td>
+          <td>{{ form.E1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.E2.label }}</td>
+          <td>{{ form.E2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.E3.label }}</td>
+          <td>{{ form.E3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.E4.label }}</td>
+          <td>{{ form.E4 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.F1.label }}</td>
+          <td>{{ form.F1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.F2.label }}</td>
+          <td>{{ form.F2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.F3.label }}</td>
+          <td>{{ form.F3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.F4.label }}</td>
+          <td>{{ form.F4 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.G1.label }}</td>
+          <td>{{ form.G1 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.G2.label }}</td>
+          <td>{{ form.G2 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.G3.label }}</td>
+          <td>{{ form.G3 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.G4.label }}</td>
+          <td>{{ form.G4 }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.G5.label }}</td>
+          <td>{{ form.G5 }}</td>
+        </tr>
+      </table>
+      <br>
+      <div style="font-size:12px;margin-left:100px"> 
+      {{ form.Save }}
+      </div>
+ </form>
+
+    </div>    
+
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">info@code.sydney</p>
+            <p class="copyright">Code.Sydney Pty Ltd © 2018 Australian Company Number 625 436 151</p>
+        </footer>
+    </div>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/bs-animation.js"></script>
+</body>
+
+</html>

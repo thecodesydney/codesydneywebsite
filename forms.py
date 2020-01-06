@@ -48,7 +48,7 @@ class InputForm(Form):
     G2 = SelectField('G.2 (Coding Interview Prep ) Data Structures', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
     G3 = SelectField('G.3 (Coding Interview Prep ) Take Home Projects', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
     G4 = SelectField('G.4 (Coding Interview Prep ) Rosetta Code', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
-    G5 = SelectField('G.5 (Coding Interview Prep ) Project Euler ', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    G5 = SelectField('G.5 (Coding Interview Prep ) Project Euler', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
     Save = SubmitField('Save',render_kw={"size":"500"})
 
 class LoginForm(Form):

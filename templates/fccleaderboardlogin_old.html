@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code.Sydney</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Footer-Basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Header-Dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Highlight-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Projects-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Projects-Horizontal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Team-Clean.css') }}">
+</head>
+
+<body>
+
+    <div style="color:#636363;">
+        <h2 class="text-center" style="font-size:60px;color:#37434d;">Sydney Volunteer Programmers</h2>
+    </div>
+    <div>
+        <br/>
+        <h2 class="text-center" style="font-size:25px;">1st Place Winner, Vibewire's Hack4FI (Financial Inclusion) 2018</h2>
+        <h2 class="text-center" style="font-size:25px;">3rd Place Winner, Vibewire's Hack4Homelessness 2017</h2>
+    </div>
+    
+    <div>
+        <h2 class="text-center" style="font-size:65px;color:#505e6c;"><a href="{{ url_for('fccleaderboard') }}">FCC Leaderboard</a></h2>
+    </div>
+
+    <div class="page-header">
+      </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="well bs-component">
+              <form class="form-horizontal" method="POST" action="{{ url_for('fccleaderboardlogin') }}">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="col-lg-10" style="margin-left:100px">
+                     {% if error %}
+                     <div>{{ error }}</div>
+                     {% endif %}
+                    </div>
+                    <label for="inputName" class="col-lg-2 control-label" style="margin-left:100px">{{ loginform.LoginEmail }}</label>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword" class="col-lg-2 control-label" style="margin-left:100px">{{ loginform.LoginPassword }}</label>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2" style="margin-left:100px">
+                      {{ loginform.LoginButton }}
+                    </div>
+    <a class="nav-link" href="{{ url_for('fccleaderboardregister') }}" style="font-size:15px;color:#000000;margin-left:98px"><u>Register as new user</u></a>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">info@code.sydney</p>
+            <p class="copyright">Code.Sydney Pty Ltd © 2018 Australian Company Number 625 436 151</p>
+        </footer>
+    </div>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/bs-animation.js"></script>
+</body>
+
+</html>
