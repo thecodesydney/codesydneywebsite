@@ -36,7 +36,6 @@ class Messages(db.Model):
     def __repr__(self):
         return f"Messages('{self.name}', '{self.email}', '{self.messages}')"
 
-
 @app.route('/home', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
