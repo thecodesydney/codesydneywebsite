@@ -47,6 +47,10 @@ def index():
         return render_template('thanks.html', messages=True)
     return render_template('index.html', year=current_year(), submission=submission)
 
+@app.route('/microbootcamp', methods=['GET', 'POST'])
+def microbootcamp():
+    return render_template('microbootcamp.html')
+
 @app.route('/awards', methods=['GET', 'POST'])
 def awards():
     return render_template('awards.html')

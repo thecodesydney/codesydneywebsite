@@ -1,0 +1,214 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+  <!-- SHOWCASE -->
+  <section id="showcase">
+
+    <div class="primary-overlay text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mt-5">
+        
+            <h1 class="display-3 mt-5 pt-1 top-spacing" style="font-family:Montserrat;">
+              Micro Bootcamp
+            </h1>
+            <h3>
+              Beginner Web Development
+            </h3>
+
+           </div>
+         </div>
+      </div>    
+    </div>
+
+  </section>
+
+  <br/>
+  <div class="text-center">
+    <h1>
+      What you will learn
+    </h1>
+  </div>
+  <p style = "margin: 30px">
+  </p>
+
+  <section id="home-icons" class="py-5 move-up bg-light">
+    <p></p>
+    <div class="container">
+      <div class="row">
+    
+        <div class="col-md-4 mb-4 text-center">
+          <img src="{{ url_for('static', filename='img/html.png') }}" width="80px" class="mb-2 img-fluid">
+          <h4>HTML</h4>
+          <p class="service-text">Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.</p>
+        </div>
+       
+        <div class="col-md-4 mb-4 text-center">
+          <img src="{{ url_for('static', filename='img/css.png') }}" width="80px" class="mb-2 img-fluid">
+          <h4>CSS</h4>
+          <p class="service-text">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.</p>
+        </div>
+
+        <div class="col-md-4 mb-4 text-center">
+          <img src="{{ url_for('static', filename='img/js.png') }}" width="80px" class="mb-2 img-fluid">
+          <h4>JavaScript</h4>
+          <p class="service-text">JavaScript (JS) is the programming language of the web. It can be used to add dynamic behavior, store data, and handle requests and responses on a website.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Services Ends --> 
+
+
+  <p></p>
+  <p></p>
+ 
+  <br/>
+  <div class="text-center">
+    <h1>
+       Schedule and Fees
+    </h1>
+  </div>
+  <p style = "margin: 30px">
+  </p>
+
+  <table style="margin-left: 20px" id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+          <td>Next Cohort</a></td>
+          <td>1st June 2020</a></td>
+        </tr>
+        <tr>
+          <td>Fee</td>
+          <td>1st June 2020 ($49 Non-refundable Reservation Fee; $99 Refundable during 1st week of HTML/CSS; $99 Refundable during 1st week of JS)</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p></p>
+<p></p>
+
+<br/>
+<div class="text-center">
+  <p></p>
+  <p></p>
+
+  <h1>
+     Training Materials and Training Approach
+  </h1>
+</div>
+<p style = "margin: 30px">
+</p>
+
+<p style = "margin: 30px">We are a believer of freeCodeCamp.org hence this micro bootcamp will be anchored to the first 2 sections of freeCodeCamp curriculum. In fact, if you are self-driven, we highly recommend that you just go through freeCodeCamp.org yourself and just join our slack channel like other self-driven learners.
+However, if you need someone to push you, then this micro bootcamp is for you. We will also ensure that there will be regular class zoom meetings (ie. Mon/Wed/Fri) to share our progress and any roadblocks along the way. At the end of the course, we will also introduce you to GitHub to learn how to build a project within a team environment.
+</p>
+      
+ <p></p>
+ <p></p>
+
+ <br/>
+ <div class="text-center">
+   <h1>
+      Instructors
+   </h1>
+ </div>
+ 
+  <div class="spacing"></div>    
+
+  <section id="authors" class="my-5 text-center bg-light">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/tony.png') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Tony Johnson</h4>
+              <h5 class="text-muted">Instructor</h5>
+              <p class="team-text">
+                Despite having a Degree in Prehistory and Archaeology, Tony has survived 30 years in various IT 
+                careers; from hardware sales and service, support desk, linux systems administration, 
+                management, consultancy, and software development. 
+                He began coding commercially 8 years ago in Java for Structural Geology project, 
+                and moved on to full-stack web development. 
+                He has completed the Free Code Camp front-end and back-end curriculum for JavaScript, 
+                React/Redux, Node/Express, MongoDB and GraphQL. 
+                Tony is an active participant in Free Code Camp Sydney meetups. Currently, 
+                he is contracted as Project Manager for McLowd Financial Services Marketplace, 
+                a cloud-based software company.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/tony-johnson-53995413/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/promie.png') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Promie Yutasane</h4>
+              <h5 class="text-muted">Instructor</h5>
+              <p class="team-text">Promie Yutasane is currently working as an Accounts and Data Analyst and a part-time 
+                Master of IT student at UNSW with Data Science and Artificial Intelligence as majors. 
+                He specialises in data analysis and visualisation, working with technologies such as 
+                Python, SQL, Javascript and VBA. Promie has completed FreeCodeCamp's front-end curriculum and 
+                currently exploring full stack development. Promie is passionate with both the design 
+                component and the logical aspect of programming. 
+                He is looking forward to contributing to the community by sharing the knowledge to 
+                people who want to start their journey with web development.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/promie-yutasane-74a024140/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/engramar.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Engramar Bollas</h4>
+              <h5 class="text-muted">Facilitator</h5>
+              <p class="team-text">Engramar's raison d'etre is to serve. A believer of servant leadership. He is passionate in providing service excellence to customers and ensuring people, culture, processes and technology support the same initiative.
+Engramar has worked in the IT industry for over 24 years. Having worked in Asia, the Middle East and Australia, Engramar has deep expertise in all aspects of software development lifecycle including business requirements analysis, systems design and development, product testing, release management, end-user training, pre-sales and post-implementation support.
+Engramar is working for GBG (Mastersoft Group) as their Head of Customer Support and Testing team. Engramar is also the current Director of Code.Sydney, an organisation which helps beginner programmers and novice data analysts showcase their newfound skills. Engramar has obtained a degree in Mathematics major in Computer Science from the Pontifical and Royal University of Santo Tomas in Manila.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/engramarbollas/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="spacing"></div>
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/bootstrap/js/bootstrap.min.js"></script>
+  <script src="static/js/smart-forms.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+  <!-- Contact Ends -->
+
+{% endblock content %}
