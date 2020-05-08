@@ -53,6 +53,10 @@ def microbootcamp():
     return render_template('microbootcamp.html')
 '''
 
+@app.route('/vue', methods=['GET', 'POST'])
+def microbootcamp():
+    return render_template('vue.html')
+
 @app.route('/awards', methods=['GET', 'POST'])
 def awards():
     return render_template('awards.html')
