@@ -60,3 +60,21 @@ class RegisterForm(Form):
     RegisterEmail = StringField('Email',render_kw={"placeholder":"Email","size":"85"}) 
     RegisterPassword = StringField('Password',render_kw={"placeholder":"Password (Optional)","size":"85"}) 
     RegisterButton = SubmitField('Register',render_kw={"size":"500"})
+
+
+class VueInputForm(Form):
+    Name = StringField('User',render_kw={"size":"116"}) 
+    Email = StringField('Email',render_kw={"size":"116"}) 
+    Password = StringField('Password',render_kw={"size":"116"}) 
+    A1 = SelectField('[Intro to Vue.js] The Vue Instance', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A2 = SelectField('[Intro to Vue.js] Attribute Binding', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A3 = SelectField('[Intro to Vue.js] Conditional Rendering', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A4 = SelectField('[Intro to Vue.js] List Rendering', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A5 = SelectField('[Intro to Vue.js] Event Handling', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A6 = SelectField('[Intro to Vue.js] Class & Style Binding', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A7 = SelectField('[Intro to Vue.js] Computed Properties', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A8 = SelectField('[Intro to Vue.js] Components', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A9 = SelectField('[Intro to Vue.js] Communicating Events', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A10 = SelectField('[Intro to Vue.js] Forms', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    A11 = SelectField('[Intro to Vue.js] Tabs', choices=[('Not yet started','Not yet started'),('In progress','In progress'),('Completed','Completed')])
+    Save = SubmitField('Save',render_kw={"size":"500"})

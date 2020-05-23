@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <!-- SHOWCASE -->
+  <section id="showcase">
+    <div class="primary-overlay text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mt-5">
+        
+            <h1 class="display-3 mt-5 pt-5 top-spacing" style="font-family:Montserrat;">
+              Let's learn Vue together
+            </h1>
+        
+           </div>
+         </div>
+      </div>    
+    </div>
+  </section>
+<body>
+  <div>
+    <h3 style="margin-left:100px; color: gray">My Vue Journey</h3>
+    <form method="POST" action="{{ url_for('vueleaderboardupdate') }}">
+         <table style="font-size:12px;margin-left:100px">
+           <tr>
+             <td>{{ form.Email.label }}: {{ Email }}</td>
+           </tr>
+         </table>
+         <table style="font-size:12px;margin-left:100px">
+           <tr>
+             <td>{{ form.A1.label }}</td>
+             <td>{{ form.A1 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A2.label }}</td>
+             <td>{{ form.A2 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A3.label }}</td>
+             <td>{{ form.A3 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A4.label }}</td>
+             <td>{{ form.A4 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A5.label }}</td>
+             <td>{{ form.A5 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A6.label }}</td>
+             <td>{{ form.A6 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A7.label }}</td>
+             <td>{{ form.A7 }}</td>
+           </tr>
+           <tr>
+             <td>{{ form.A8.label }}</td>
+             <td>{{ form.A8 }}</td>
+           </tr>
+           <tr>
+            <td>{{ form.A9.label }}</td>
+            <td>{{ form.A9 }}</td>
+          </tr>
+          <tr>
+            <td>{{ form.A10.label }}</td>
+            <td>{{ form.A10 }}</td>
+          </tr>
+          <tr>
+            <td>{{ form.A11.label }}</td>
+            <td>{{ form.A11 }}</td>
+          </tr>
+         </table>
+         <br>
+         <div style="font-size:12px;margin-left:100px"> 
+         {{ form.Save }}
+         </div>
+    </form>
+   
+       </div>   
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/smart-forms.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+</body>
+  <!-- Fellowship Ends -->
+
+{% endblock content %}

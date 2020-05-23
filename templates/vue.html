@@ -203,6 +203,31 @@ Always conscious of online security, emerging trends of technology and machine l
 
   </section>
 
+<h3 style="margin-left:100px; color: gray">Vue Leaderboard</h3>
+<p>
+  <a href="{{ url_for('vueleaderboardlogin') }}" style="font-size:15px;color:rgb(58, 179, 78);margin-left:100px"><u>Login</u></a>
+  <a href="{{ url_for('vueleaderboardregister') }}" style="font-size:15px;color:rgb(58, 179, 78);margin-left:5px"><u>Register</u></a>
+</p>
+
+<div>
+  <table style="font-size:17px;width:76%;text-align:left;font-weight:normal;margin-left:100px" border="0">
+  <tr>
+    <th>Camper</th>
+    <th>Progress</th>
+  </tr>       
+  <tr>
+    <th></th>
+    <th>▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥</th>
+  </tr>    
+  {% for fccampers in fccamperslist %}
+  <tr>
+    <td>{% print fccampers[0] %}</td>
+    <td>{% print fccampers[1] %}</td>
+  </tr>
+  {% endfor %}               
+  </table>
+</div>  
+
   <div class="spacing"></div>
 
   <script src="static/js/jquery.min.js"></script>
