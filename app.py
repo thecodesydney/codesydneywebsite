@@ -53,7 +53,8 @@ def microbootcamp():
     try: 
         cur = db.execute('SELECT Name, Email, Password, Completed_Count, \
                                  A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, \
-                                 B1, B2, B3, B4, B5, B6, B7, B8, B9 \
+                                 B1, B2, B3, B4, B5, B6, B7, B8, B9, \
+                                 C1, C2, C3, C4, C5, C6, C7, C8, C9 \
                             from vuedashboardtable \
                             order by Completed_Count desc')
     except Exception as e:
@@ -63,7 +64,7 @@ def microbootcamp():
     for row in res:
         statuslisttemp = []
         name  = row[0]
-        for i in range(4,24):
+        for i in range(4,33):
             status = row[i]
             if status == 'Completed':
                 statuslisttemp.append('▩')
@@ -295,7 +296,7 @@ def vueleaderboardregister():
         else:
             if Email != '':
                 db.execute('INSERT into vuedashboardtable \
-                                (Name, Email, Password, Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, B1, B2, B3, B4, B5, B6, B7, B8, B9) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Name, Email, Password, 0, 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started'])
+                                (Name, Email, Password, Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, B1, B2, B3, B4, B5, B6, B7, B8, B9, C1, C2, C3, C4, C5, C6, C7, C8, C9) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Name, Email, Password, 0, 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started'])
                 db.commit()                
                 session['tempemail'] = Email
                 return redirect(url_for('vueleaderboardupdate'))
@@ -635,7 +636,8 @@ def vueleaderboardupdate():
         try: 
             user_cur = db.execute('SELECT Name, Email, Password, Completed_Count, \
                                      A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, \
-                                     B1, B2, B3, B4, B5, B6, B7, B8, B9 \
+                                     B1, B2, B3, B4, B5, B6, B7, B8, B9, \
+                                     C1, C2, C3, C4, C5, C6, C7, C8, C9 \
                                 from vuedashboardtable \
                                 where Email = ?', [Email])
         except Exception as e:
@@ -709,10 +711,37 @@ def vueleaderboardupdate():
         B9 = form.B9.data
         if B9 == 'Completed':  
             Completed_Count += 1 
+        C1 = form.C1.data
+        if C1 == 'Completed':  
+            Completed_Count += 1 
+        C2 = form.C2.data
+        if C2 == 'Completed':  
+            Completed_Count += 1 
+        C3 = form.C3.data
+        if C3 == 'Completed':  
+            Completed_Count += 1 
+        C4 = form.C4.data
+        if C4 == 'Completed':  
+            Completed_Count += 1 
+        C5 = form.C5.data
+        if C5 == 'Completed':  
+            Completed_Count += 1 
+        C6 = form.C6.data
+        if C6 == 'Completed':  
+            Completed_Count += 1 
+        C7 = form.C7.data
+        if C7 == 'Completed':  
+            Completed_Count += 1 
+        C8 = form.C8.data
+        if C8 == 'Completed':  
+            Completed_Count += 1 
+        C9 = form.C9.data
+        if C9 == 'Completed':  
+            Completed_Count += 1 
         try:
             db.execute('UPDATE vuedashboardtable \
-                         SET Completed_Count=?, A1=?, A2=?, A3=?, A4=?, A5=?, A6=?, A7=?, A8=?, A9=?, A10=?, A11=?, B1=?, B2=?, B3=?, B4=?, B5=?, B6=?, B7=?, B8=?, B9=? \
-                        WHERE Email = ?', (Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, B1, B2, B3, B4, B5, B6, B7, B8, B9, Email))
+                         SET Completed_Count=?, A1=?, A2=?, A3=?, A4=?, A5=?, A6=?, A7=?, A8=?, A9=?, A10=?, A11=?, B1=?, B2=?, B3=?, B4=?, B5=?, B6=?, B7=?, B8=?, B9=?, C1=?, C2=?, C3=?, C4=?, C5=?, C6=?, C7=?, C8=?, C9=? \
+                        WHERE Email = ?', (Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, B1, B2, B3, B4, B5, B6, B7, B8, B9, C1, C2, C3, C4, C5, C6, C7, C8, C9, Email))
             db.commit()
         except Exception as e:
             print(e)
@@ -737,6 +766,15 @@ def vueleaderboardupdate():
         form.B7.data = B7 
         form.B8.data = B8 
         form.B9.data = B9 
+        form.C1.data = C1   
+        form.C2.data = C2   
+        form.C3.data = C3   
+        form.C4.data = C4   
+        form.C5.data = C5 
+        form.C6.data = C6 
+        form.C7.data = C7 
+        form.C8.data = C8 
+        form.C9.data = C9 
 
         return render_template('vueleaderboardupdate.html',
                                 form=form)
@@ -746,7 +784,8 @@ def vueleaderboardupdate():
         try: 
             user_cur = db.execute('SELECT Name, Email, Password, Completed_Count, \
                                      A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, \
-                                     B1, B2, B3, B4, B5, B6, B7, B8, B9 \
+                                     B1, B2, B3, B4, B5, B6, B7, B8, B9, \
+                                     C1, C2, C3, C4, C5, C6, C7, C8, C9 \
                                 from vuedashboardtable \
                                 where Email = ?', [Email])
         except Exception as e:
@@ -778,6 +817,15 @@ def vueleaderboardupdate():
             B7 = row[21]
             B8 = row[22]
             B9 = row[23]
+            C1 = row[24]
+            C2 = row[25]
+            C3 = row[26]
+            C4 = row[27]
+            C5 = row[28]
+            C6 = row[29]
+            C7 = row[30]
+            C8 = row[31]
+            C9 = row[32]
         
         form.Email.data = Email
         form.Password.data = Password 
@@ -801,6 +849,15 @@ def vueleaderboardupdate():
         form.B7.data = B7
         form.B8.data = B8
         form.B9.data = B9
+        form.C1.data = C1  
+        form.C2.data = C2  
+        form.C3.data = C3  
+        form.C4.data = C4  
+        form.C5.data = C5
+        form.C6.data = C6
+        form.C7.data = C7
+        form.C8.data = C8
+        form.C9.data = C9
 
         return render_template('vueleaderboardupdate.html',
                                 form=form,
