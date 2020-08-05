@@ -5,11 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 from database import get_db
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import InputForm, LoginForm, RegisterForm, VueInputForm
+from flask_cors import CORS
 import sqlite3
 import os, re
 from os import path
 
 app = Flask(__name__)
+CORS(app)
+
 blueprint_codesydneysiders = Blueprint('api_codesydneysiders', __name__, url_prefix='/api')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
