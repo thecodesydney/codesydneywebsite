@@ -10,6 +10,7 @@ import os, re
 from os import path
 
 app = Flask(__name__)
+blueprint_codesydneysiders = Blueprint('api_codesydneysiders', __name__, url_prefix='/api')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
@@ -862,6 +863,49 @@ def vueleaderboardupdate():
         return render_template('vueleaderboardupdate.html',
                                 form=form,
                                 Email=Email)
+
+########################################################################################################################
+# CodeSydneySiders API
+########################################################################################################################
+api = Api(blueprint_codesydneysiders, doc='/documentation', version='1.0', title='Data Service for Code.Sydney members',
+          description='This is a Flask-RESTPlus data service that allows a client to consume APIs to retrieve Code.Sydney members.',
+          )
+app.register_blueprint(blueprint_codesydneysiders)
+
+#Database helper
+ROOT = path.dirname(path.realpath(__file__))
+def connect_db_codesydneysiders():
+    sql = sqlite3.connect(path.join(ROOT, "codesydneysiders.db"))
+    sql.row_factory = sqlite3.Row
+    return sql
+
+def get_db_codesydneysiders():
+    if not hasattr(g, 'sqlite_db'):
+        g.sqlite_db = connect_db_codesydneysiders()
+    return g.sqlite_db
+
+@api.route('/codesydneysiders/all')
+class AllCodeSydneySiders(Resource):
+    @api.response(200, 'SUCCESSFUL: Contents successfully loaded')
+    @api.response(204, 'NO CONTENT: No content in database')
+    @api.doc(description='Retrieving all records from the database for all suburbs.')
+    def get(self):
+        db = get_db_codesydneysiders()
+        details_cur = db.execute('select id, imageURL, name, title, socialURL from codesydneysiders')
+        details = details_cur.fetchall()
+
+        return_values = []
+
+        for detail in details:
+            detail_dict = {}
+            detail_dict['id'] = detail['id']
+            detail_dict['imageURL'] = detail['imageURL']
+            detail_dict['name'] = detail['name']
+            detail_dict['title'] = detail['title']
+            detail_dict['socialURL'] = detail['socialURL']
+            return_values.append(detail_dict)
+
+        return make_response(jsonify(return_values), 200)
 
 if __name__ == '__main__':
     app.run(debug=True)
