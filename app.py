@@ -891,21 +891,33 @@ def get_db_codesydneysiders():
 class AllCodeSydneySiders(Resource):
     @api.response(200, 'SUCCESSFUL: Contents successfully loaded')
     @api.response(204, 'NO CONTENT: No content in database')
-    @api.doc(description='Retrieving all records from the database for all suburbs.')
+    @api.doc(description='Retrieving all records from the database for all CodeSydneysiders.')
     def get(self):
         db = get_db_codesydneysiders()
-        details_cur = db.execute('select id, imageURL, name, title, socialURL from codesydneysiders')
+        details_cur = db.execute('select id, photo, name, title, socialURL, headline from codesydneysiders')
         details = details_cur.fetchall()
 
         return_values = []
-
         for detail in details:
             detail_dict = {}
             detail_dict['id'] = detail['id']
-            detail_dict['imageURL'] = detail['imageURL']
+            detail_dict['photo'] = detail['photo']
             detail_dict['name'] = detail['name']
             detail_dict['title'] = detail['title']
             detail_dict['socialURL'] = detail['socialURL']
+            detail_dict['headline'] = detail['headline']
+
+            return_badge_values = []
+            details_cur2 = db.execute('select id, codesydneysider_id, badge_order, badge_image_name, badge from badges where codesydneysider_id = ? order by codesydneysider_id', [detail_dict['id']])
+            details2 = details_cur2.fetchall()
+            for detail2 in details2:
+                detail2_dict = {}
+                detail2_dict['badge_order'] = detail2['badge_order']
+                detail2_dict['badge_image_name'] = detail2['badge_image_name']
+                detail2_dict['badge'] = detail2['badge']
+                return_badge_values.append(detail2_dict)
+
+            detail_dict['badges'] = return_badge_values
             return_values.append(detail_dict)
 
         return make_response(jsonify(return_values), 200)
