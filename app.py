@@ -908,11 +908,12 @@ class AllCodeSydneySiders(Resource):
             detail_dict['headline'] = detail['headline']
 
             return_badge_values = []
-            details_cur2 = db.execute('select id, codesydneysider_id, badge_order, badge_image_name, badge from badges where codesydneysider_id = ? order by codesydneysider_id', [detail_dict['id']])
+            details_cur2 = db.execute('select id, codesydneysider_id, badge_order, badge_name, badge_image_name, badge from badges where codesydneysider_id = ? order by codesydneysider_id', [detail_dict['id']])
             details2 = details_cur2.fetchall()
             for detail2 in details2:
                 detail2_dict = {}
                 detail2_dict['badge_order'] = detail2['badge_order']
+                detail2_dict['badge_name'] = detail2['badge_name']
                 detail2_dict['badge_image_name'] = detail2['badge_image_name']
                 detail2_dict['badge'] = detail2['badge']
                 return_badge_values.append(detail2_dict)
