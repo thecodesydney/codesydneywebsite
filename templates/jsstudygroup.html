@@ -1,0 +1,82 @@
+{% extends 'layout.html' %} {% block content %}
+<!-- SHOWCASE -->
+<section id="showcase">
+  <div class="primary-overlay text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center mt-5">
+          <h1
+            class="display-3 mt-5 pt-1 top-spacing"
+            style="font-family: Montserrat"
+          >
+            JavaScript Study Group
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br />
+<div class="text-center">
+  <h6></h6>
+  <img
+    src="{{ url_for('static', filename='img/js.svg') }}"
+    width="300px"
+    class="mb-2 img-fluid"
+  />
+</div>
+<br />
+
+<h3 style="margin-left: 100px; color: gray">JavaScript Leaderboard</h3>
+<p>
+  <a
+    href="{{ url_for('vueleaderboardlogin') }}"
+    style="font-size: 15px; color: rgb(59, 122, 194); margin-left: 100px"
+    ><u>Login</u></a
+  >
+  <a
+    href="{{ url_for('vueleaderboardregister') }}"
+    style="font-size: 15px; color: rgb(59, 122, 194); margin-left: 5px"
+    ><u>Register</u></a
+  >
+</p>
+
+<div>
+  <table
+    style="
+      font-size: 17px;
+      width: 76%;
+      text-align: left;
+      font-weight: normal;
+      margin-left: 100px;
+    "
+    border="0"
+  >
+    <tr>
+      <th>Camper</th>
+      <th>Progress</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩▥▩</th>
+    </tr>
+    {% for fccampers in fccamperslist %}
+    <tr>
+      <td>{% print fccampers[0] %}</td>
+      <td>{% print fccampers[1] %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="spacing"></div>
+
+<script src="static/js/jquery.min.js"></script>
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/js/smart-forms.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<!-- Contact Ends -->
+
+{% endblock content %}
