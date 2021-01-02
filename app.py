@@ -88,9 +88,9 @@ def microbootcamp():
 def awards():
     return render_template('awards.html')
 
-@app.route('/testimonials', methods=['GET', 'POST'])
-def testimonials():
-    return render_template('testimonials.html')
+@app.route('/volunteering', methods=['GET', 'POST'])
+def volunteering():
+    return render_template('volunteering.html')
 
 @app.route('/fellowship', methods=['GET', 'POST'])
 def fellowship():
@@ -103,6 +103,14 @@ def opend():
 @app.route('/newsletter', methods=['GET', 'POST'])
 def newsletter():
     return render_template('newsletter.html')
+
+@app.route('/merch', methods=['GET', 'POST'])
+def merch():
+    return render_template('merch.html')
+
+@app.route('/support', methods=['GET', 'POST'])
+def support():
+    return render_template('support.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
