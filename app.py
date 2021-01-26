@@ -59,7 +59,8 @@ def microbootcamp():
                                 A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, \
                                 B1, B2, B3, B4, B5, B6, B7, B8, B9, B10,  \
                                 B11, B12, B13, B14, B15, B16, B17, B18, B19, B20,  \
-                                B21, B22, B23, B24, B25, B26, B27, B28, B29, B30 \
+                                B21, B22, B23, B24, B25, B26, B27, B28, B29, B30, \
+                                C1, C2, C3, C4, C5, C6, C7, C8  \
                             from vuedashboardtable \
                             order by Completed_Count desc')
     except Exception as e:
@@ -70,7 +71,7 @@ def microbootcamp():
     for row in res:
         statuslisttemp = []
         name  = row[0]
-        for i in range(4,44):
+        for i in range(4,52):
             status = row[i]
             if status == 'Completed':
                 statuslisttemp.append('▩')
@@ -310,7 +311,7 @@ def vueleaderboardregister():
         else:
             if Email != '':
                 db.execute('INSERT into vuedashboardtable \
-                                (Name, Email, Password, Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24, B25, B26, B27, B28, B29, B30 ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Name, Email, Password, 0, 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started','Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started' ])
+                                (Name, Email, Password, Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24, B25, B26, B27, B28, B29, B30, C1, C2, C3, C4, C5, C6, C7, C8) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Name, Email, Password, 0, 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started','Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started'])
                 db.commit()                
                 session['tempemail'] = Email
                 return redirect(url_for('vueleaderboardupdate'))
@@ -652,7 +653,8 @@ def vueleaderboardupdate():
                                      A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, \
                                      B1, B2, B3, B4, B5, B6, B7, B8, B9, B10,  \
                                      B11, B12, B13, B14, B15, B16, B17, B18, B19, B20,  \
-                                     B21, B22, B23, B24, B25, B26, B27, B28, B29, B30  \
+                                     B21, B22, B23, B24, B25, B26, B27, B28, B29, B30,  \
+                                     C1, C2, C3, C4, C5, C6, C7, C8 \
                                 from vuedashboardtable \
                                 where Email = ?', [Email])
         except Exception as e:
@@ -786,11 +788,34 @@ def vueleaderboardupdate():
         B30 = form.B30.data
         if B30 == 'Completed':  
             Completed_Count += 1 
-
+        C1 = form.C1.data
+        if C1 == 'Completed':  
+            Completed_Count += 1
+        C2 = form.C2.data
+        if C2 == 'Completed':  
+            Completed_Count += 1
+        C3 = form.C3.data
+        if C3 == 'Completed':  
+            Completed_Count += 1
+        C4 = form.C4.data
+        if C4 == 'Completed':  
+            Completed_Count += 1
+        C5 = form.C5.data
+        if C5 == 'Completed':  
+            Completed_Count += 1
+        C6 = form.C6.data
+        if C6 == 'Completed':  
+            Completed_Count += 1
+        C7 = form.C7.data
+        if C7 == 'Completed':  
+            Completed_Count += 1
+        C8 = form.C8.data
+        if C8 == 'Completed':  
+            Completed_Count += 1
         try:
             db.execute('UPDATE vuedashboardtable \
-                         SET Completed_Count=?, A1=?, A2=?, A3=?, A4=?, A5=?, A6=?, A7=?, A8=?, A9=?, A10=?, B1=?, B2=?, B3=?, B4=?, B5=?, B6=?, B7=?, B8=?, B9=?, B10=?, B11=?, B12=?, B13=?, B14=?, B15=?, B16=?, B17=?, B18=?, B19=?, B20=?, B21=?, B22=?, B23=?, B24=?, B25=?, B26=?, B27=?, B28=?, B29=?, B30=? \
-                        WHERE Email = ?', (Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24, B25, B26, B27, B28, B29, B30, Email))                        
+                         SET Completed_Count=?, A1=?, A2=?, A3=?, A4=?, A5=?, A6=?, A7=?, A8=?, A9=?, A10=?, B1=?, B2=?, B3=?, B4=?, B5=?, B6=?, B7=?, B8=?, B9=?, B10=?, B11=?, B12=?, B13=?, B14=?, B15=?, B16=?, B17=?, B18=?, B19=?, B20=?, B21=?, B22=?, B23=?, B24=?, B25=?, B26=?, B27=?, B28=?, B29=?, B30=?, C1=?, C2=?, C3=?, C4=?, C5=?, C6=?, C7=?, C8=? \
+                        WHERE Email = ?', (Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24, B25, B26, B27, B28, B29, B30, C1, C2, C3, C4, C5, C6, C7, C8, Email))                        
             db.commit()
         except Exception as e:
             print(e)
@@ -835,7 +860,15 @@ def vueleaderboardupdate():
         form.B28.data = B28 
         form.B29.data = B29 
         form.B30.data = B30 
-
+        form.C1.data = C1
+        form.C2.data = C2
+        form.C3.data = C3
+        form.C4.data = C4
+        form.C5.data = C5
+        form.C6.data = C6
+        form.C7.data = C7
+        form.C8.data = C8
+        
         return render_template('vueleaderboardupdate.html',
                                 form=form)
     else:        
@@ -846,7 +879,8 @@ def vueleaderboardupdate():
                                      A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, \
                                      B1, B2, B3, B4, B5, B6, B7, B8, B9, B10,  \
                                      B11, B12, B13, B14, B15, B16, B17, B18, B19, B20,  \
-                                     B21, B22, B23, B24, B25, B26, B27, B28, B29, B30  \
+                                     B21, B22, B23, B24, B25, B26, B27, B28, B29, B30,  \
+                                     C1, C2, C3, C4, C5, C6, C7, C8 \
                                 from vuedashboardtable \
                                 where Email = ?', [Email])
         except Exception as e:
@@ -899,6 +933,14 @@ def vueleaderboardupdate():
             B28 = row[41]
             B29 = row[42]
             B30 = row[43]
+            C1 = row[44]
+            C2 = row[45]
+            C3 = row[46]
+            C4 = row[47]
+            C5 = row[48]
+            C6 = row[49]
+            C7 = row[50]
+            C8 = row[51]
 
         form.Email.data = Email
         form.Password.data = Password 
@@ -942,6 +984,15 @@ def vueleaderboardupdate():
         form.B28.data = B28
         form.B29.data = B29
         form.B30.data = B30
+        form.C1.data = C1
+        form.C2.data = C2
+        form.C3.data = C3
+        form.C4.data = C4
+        form.C5.data = C5
+        form.C6.data = C6
+        form.C7.data = C7
+        form.C8.data = C8       
+
         return render_template('vueleaderboardupdate.html',
                                 form=form,
                                 Email=Email)
