@@ -93,6 +93,10 @@ def awards():
 def volunteering():
     return render_template('volunteering.html')
 
+@app.route('/hustlers', methods=['GET', 'POST'])
+def hustlers():
+    return render_template('hustlers.html')
+
 @app.route('/fellowship', methods=['GET', 'POST'])
 def fellowship():
     return render_template('fellowship.html')
