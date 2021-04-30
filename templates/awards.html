@@ -1,112 +1,75 @@
-{% extends 'layout.html' %} {% block content %}
-<!-- SHOWCASE -->
+{% extends 'layout.html' %}
+
+
+{% block content %}
+  <!-- SHOWCASE -->
+  <section>
+    <div class="col-lg-12 text-center mt-15">
+        <h1 class="display-4 mt-5 pt-3 top-spacing" style="font-family:Montserrat;">
+          Dux Servit Award
+        </h1>
+        <h2 style="font-family:Montserrat;">
+          A Leader Serves
+        </h2>
+    </div>
+  </section>
+
+
+  <br />
+  <div class="text-center">
+    <a href="https://au.badgr.com/public/badges/b0fLICcBQxG4WWT7NOtmgw" target="_blank">
+      <img
+        src="{{ url_for('static', filename='img/duxservit.svg') }}"
+        width="300px"
+        class="mb-2 img-fluid"
+      />
+    </a>
+  </div>
+
 <section>
-  <div class="col-lg-12 text-center mt-15">
-      <h1 class="display-4 mt-5 pt-3 top-spacing" style="font-family:Montserrat;">
-        Awards and Events
-      </h1>
+  <div class="text-center">
+      <h5 style="font-family:Montserrat;">
+        <br/>
+        Dux Servit award is given to those who have solved a problem worth solving. The badge applies only to successful delivery of projects to non-profit organisations or community groups.          
+      </h5>
   </div>
 </section>
 
-<!-- Awards and Events -->
-<div class="spacing"></div>
+  <div class="spacing"></div>    
 
-<section id="home-icons" class="py-5 move-up-more bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/pythonteam.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">
-          With Matthew Kean, Minister for Innovation and Better Regulation
-          during the presentation of our 1st place award at Vibewire's Hack4FI
-          (Financial Inclusion).
-        </p>
-      </div>
+  <section id="authors" class="my-5 text-center bg-light">
 
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/3rdh4h.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">
-          Code.Sydney's winning team at Vibewire's Hack4Homelessness. We bagged
-          the 3rd spot.
-        </p>
-      </div>
+    <div class="container">
+      <div class="row">
 
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/hack4dv.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">
-          Code.Sydney's contingent at Vibewire's Hack4DV (Domestic Violence).
-        </p>
-      </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <img src="{{ url_for('static', filename='img/kevin.jpg') }}" alt="" class="img-fluid rounded-circle w-50 mb-3">
+              <h4>Kevin Foong</h4>
+              <a href="http://www.propertyextractor.com.au/" target="_blank">
+                <h6 class="text-muted">Property Extractor App</h6>
+              </a>
+              <p class="team-text">Kevin singlehandedly created the property extractor app which helped two Sydney-based charity organisations by providing their back office staff a tool to easily extract potential rental properties as temporary accommodation for those who are on the brink of experiencing homelessness.</p>
+              <div class="d-flex justify-content-center">
+                <div class="p-4">
+                  <a href="https://www.linkedin.com/in/kevin-foong-044794/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/team_zoned.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">
-          During Covid-19 lockdown around April 2020, Code.Sydney joined an
-          online hackathon organised by StayHomeHack. As volunteer programmers,
-          we thought we have an obligation to share our thoughts on what was
-          happening at the time.
-        </p>
-      </div>
-
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/fccteam.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">
-          With Quincy Larson, founder of Free Code Camp during his visit to
-          Melbourne.
-        </p>
-      </div>
-
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/actura.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">
-          Guest Judge at Actura's OneWorld Robotics Competition
-        </p>
-      </div>
-
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/PostCovid2020.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">Post-COVID Lockdown lunch 2020</p>
-      </div>
-
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/xmas2019.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">End of year mentors lunch 2019</p>
-      </div>
-
-      <div class="col-md-4 mb-4 text-center">
-        <img
-          src="{{ url_for('static', filename='img/xmas2018.jpg') }}"
-          class="mb-2 img-fluid"
-        />
-        <p class="service-text">End of year mentors lunch 2018</p>
       </div>
     </div>
-  </div>
-</section>
-<!-- Awards and Events Ends -->
+
+  </section>
+
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/smart-forms.min.js"></script>
+  <!-- Contact Ends -->
 
 {% endblock content %}

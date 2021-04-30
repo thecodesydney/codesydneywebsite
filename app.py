@@ -89,6 +89,10 @@ def microbootcamp():
 def awards():
     return render_template('awards.html')
 
+@app.route('/gallery', methods=['GET', 'POST'])
+def gallery():
+    return render_template('gallery.html')
+
 @app.route('/volunteering', methods=['GET', 'POST'])
 def volunteering():
     return render_template('volunteering.html')
