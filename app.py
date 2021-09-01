@@ -4,7 +4,7 @@ from functions import current_year
 from flask_sqlalchemy import SQLAlchemy
 from database import get_db
 from werkzeug.security import generate_password_hash, check_password_hash
-from forms import InputForm, LoginForm, RegisterForm, VueInputForm
+from forms import InputForm, LoginForm, RegisterForm, VueInputForm, ReactInputForm
 from flask_cors import CORS
 import sqlite3
 import os, re
@@ -44,14 +44,8 @@ def index():
         return render_template('thanks.html', messages=True)
     return render_template('index.html', year=current_year(), submission=submission)
 
-'''
-@app.route('/microbootcamp', methods=['GET', 'POST'])
-def microbootcamp():
-    return render_template('microbootcamp.html')
-'''
-
 @app.route('/jsstudygroup', methods=['GET', 'POST'])
-def microbootcamp():
+def jsstudygroup():
     db = get_db()
     fccamperslist = []
     try: 
@@ -83,6 +77,41 @@ def microbootcamp():
         fccamperslist.append(selected_fields)
 
     return render_template('jsstudygroup.html',
+                           fccamperslist=fccamperslist)
+
+
+@app.route('/reactstudygroup', methods=['GET', 'POST'])
+def reactstudygroup():
+    db = get_db()
+    fccamperslist = []
+    try: 
+        cur = db.execute('SELECT Name, Email, Password, Completed_Count, \
+                                A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, \
+                                A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, \
+                                A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, \
+                                A31, A32, A33, A34, A35, A36, A37, A38, A39 \
+                            from reactdashboardtable \
+                            order by Completed_Count desc')    
+    except Exception as e:
+        print('Exception: ',e)    
+    
+    res = cur.fetchall()
+
+    for row in res:
+        statuslisttemp = []
+        name  = row[0]
+        for i in range(4,43):
+            status = row[i]
+            if status == 'Completed':
+                statuslisttemp.append('▩')
+            else:
+                statuslisttemp.append('▥')
+        statuslist = "".join(str(x) for x in statuslisttemp) 
+        name_string = "".join(str(name))
+        selected_fields = [name_string,statuslist]
+        fccamperslist.append(selected_fields)
+
+    return render_template('reactstudygroup.html',
                            fccamperslist=fccamperslist)
 
 @app.route('/awards', methods=['GET', 'POST'])
@@ -212,8 +241,8 @@ def fccleaderboardlogin():
         return render_template('fccleaderboardlogin.html',
                                 loginform=loginform)
 
-@app.route('/vueleaderboardlogin', methods=['GET', 'POST'])
-def vueleaderboardlogin():
+@app.route('/jsstudygrouplogin', methods=['GET', 'POST'])
+def jsstudygrouplogin():
     loginform = LoginForm() 
     error = None
     if request.method == 'POST':
@@ -238,17 +267,56 @@ def vueleaderboardlogin():
                 Password = row[2]
                 if Password == loginform.LoginPassword.data:
                     session['tempemail'] = Email
-                    return redirect(url_for('vueleaderboardupdate'))         
+                    return redirect(url_for('jsstudygroupupdate'))         
                 else:
                     error = 'The password is incorrect.'
         else:
             error = 'The username is incorrect'
-        return render_template('vueleaderboardlogin.html',
+        return render_template('jsstudygrouplogin.html',
                                 loginform=loginform,
                                 error=error)
     else:
-        return render_template('vueleaderboardlogin.html',
+        return render_template('jsstudygrouplogin.html',
                                 loginform=loginform)
+
+@app.route('/reactstudygrouplogin', methods=['GET', 'POST'])
+def reactstudygrouplogin():
+    loginform = LoginForm() 
+    error = None
+    if request.method == 'POST':
+        db = get_db()
+        Email = loginform.LoginEmail.data       
+        try: 
+            user_cur = db.execute('SELECT Name, Email, Password from reactdashboardtable where Email = ?', [Email])
+        except Exception as e:
+            print('Exception: ',e)    
+        numRows = (len(user_cur.fetchall()))
+
+        try: 
+            user_cur = db.execute('SELECT Name, Email, Password from reactdashboardtable where Email = ?', [Email])
+        except Exception as e:
+            print('Exception: ',e)    
+
+        if numRows == 1:
+            res = user_cur.fetchall()
+            for row in res:
+                Name  = row[0]
+                Email = row[1]
+                Password = row[2]
+                if Password == loginform.LoginPassword.data:
+                    session['tempemail'] = Email
+                    return redirect(url_for('reactstudygroupupdate'))         
+                else:
+                    error = 'The password is incorrect.'
+        else:
+            error = 'The username is incorrect'
+        return render_template('reactstudygrouplogin.html',
+                                loginform=loginform,
+                                error=error)
+    else:
+        return render_template('reactstudygrouplogin.html',
+                                loginform=loginform)
+
 
 @app.route('/fccleaderboardregister', methods=['GET', 'POST'])
 def fccleaderboardregister():
@@ -291,8 +359,8 @@ def fccleaderboardregister():
         return render_template('fccleaderboardregister.html',
                                 registerform=registerform)
 
-@app.route('/vueleaderboardregister', methods=['GET', 'POST'])
-def vueleaderboardregister():
+@app.route('/jsstudygroupregister', methods=['GET', 'POST'])
+def jsstudygroupregister():
     registerform = RegisterForm() 
     error = None
     if request.method == 'POST':
@@ -313,7 +381,7 @@ def vueleaderboardregister():
 
         if numRows == 1:
             error='Email already exists!'
-            return render_template('vueleaderboardregister.html', 
+            return render_template('jsstudygroupregister.html', 
                                     registerform=registerform,
                                     error=error)
         else:
@@ -322,15 +390,58 @@ def vueleaderboardregister():
                                 (Name, Email, Password, Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24, B25, B26, B27, B28, B29, B30, C1, C2, C3, C4, C5, C6, C7, C8) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Name, Email, Password, 0, 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started','Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started'])
                 db.commit()                
                 session['tempemail'] = Email
-                return redirect(url_for('vueleaderboardupdate'))
+                return redirect(url_for('jsstudygroupupdate'))
             else:
                 error='Please enter valid email'
-                return render_template('vueleaderboardregister.html', 
+                return render_template('jsstudygroupregister.html', 
                                         registerform=registerform,
                                         error=error)
     else:
-        return render_template('vueleaderboardregister.html',
+        return render_template('jsstudygroupregister.html',
                                 registerform=registerform)
+
+
+@app.route('/reactstudygroupregister', methods=['GET', 'POST'])
+def reactstudygroupregister():
+    registerform = RegisterForm() 
+    error = None
+    if request.method == 'POST':
+        db = get_db()
+        Email = registerform.RegisterEmail.data   
+        NameList = re.findall('^[^@]+', Email)
+        Name = ''.join(NameList)
+        Password = registerform.RegisterPassword.data
+        try: 
+            user_cur = db.execute('SELECT Name, Email, Password from reactdashboardtable where Email = ?', [Email])
+        except Exception as e:
+            print('Exception: ',e)    
+        numRows = (len(user_cur.fetchall()))
+        try: 
+            user_cur = db.execute('SELECT Name, Email, Password from reactdashboardtable where Email = ?', [Email])
+        except Exception as e:
+            print('Exception: ',e)
+
+        if numRows == 1:
+            error='Email already exists!'
+            return render_template('reactstudygroupregister.html', 
+                                    registerform=registerform,
+                                    error=error)
+        else:
+            if Email != '':
+                db.execute('INSERT into reactdashboardtable \
+                                (Name, Email, Password, Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [Name, Email, Password, 0, 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started', 'Not yet started'])
+                db.commit()                
+                session['tempemail'] = Email
+                return redirect(url_for('reactstudygroupupdate'))
+            else:
+                error='Please enter valid email'
+                return render_template('reactstudygroupregister.html',
+                                        registerform=registerform,
+                                        error=error)
+    else:
+        return render_template('reactstudygroupregister.html',
+                                registerform=registerform)
+
 
 @app.route('/fccleaderboardupdate',methods=['GET','POST'])
 def fccleaderboardupdate():
@@ -649,8 +760,8 @@ def fccleaderboardupdate():
                                 Name=Name)
 
 
-@app.route('/vueleaderboardupdate',methods=['GET','POST'])
-def vueleaderboardupdate():
+@app.route('/jsstudygroupupdate',methods=['GET','POST'])
+def jsstudygroupupdate():
     form = VueInputForm() 
 
     if request.method == 'POST':
@@ -877,7 +988,7 @@ def vueleaderboardupdate():
         form.C7.data = C7
         form.C8.data = C8
         
-        return render_template('vueleaderboardupdate.html',
+        return render_template('jsstudygroupupdate.html',
                                 form=form)
     else:        
         db = get_db()
@@ -1001,7 +1112,306 @@ def vueleaderboardupdate():
         form.C7.data = C7
         form.C8.data = C8       
 
-        return render_template('vueleaderboardupdate.html',
+        return render_template('jsstudygroupupdate.html',
+                                form=form,
+                                Email=Email)
+
+@app.route('/reactstudygroupupdate',methods=['GET','POST'])
+def reactstudygroupupdate():
+    form = ReactInputForm() 
+    if request.method == 'POST':
+        db = get_db()
+        Email = session.get('tempemail', None)
+        try: 
+            user_cur = db.execute('SELECT Name, Email, Password, Completed_Count, \
+                                     A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, \
+                                     A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, \
+                                     A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, \
+                                     A31, A32, A33, A34, A35, A36, A37, A38, A39 \
+                                from reactdashboardtable \
+                                where Email = ?', [Email])
+        except Exception as e:
+            print('Exception: ',e)
+
+        res = user_cur.fetchall()
+        for row in res:
+            Name  = row[0]
+            Email = row[1]
+            Password = row[2]
+            Completed_Count = row[3]
+
+        Completed_Count = 0    
+        A1 = form.A1.data
+        if A1 == 'Completed':  
+            Completed_Count += 1
+        A2 = form.A2.data  
+        if A2 == 'Completed':  
+            Completed_Count += 1
+        A3 = form.A3.data  
+        if A3 == 'Completed':  
+            Completed_Count += 1
+        A4 = form.A4.data  
+        if A4 == 'Completed':  
+            Completed_Count += 1
+        A5 = form.A5.data
+        if A5 == 'Completed':  
+            Completed_Count += 1
+        A6 = form.A6.data
+        if A6 == 'Completed':  
+            Completed_Count += 1
+        A7 = form.A7.data
+        if A7 == 'Completed':  
+            Completed_Count += 1       
+        A8 = form.A8.data
+        if A8 == 'Completed':  
+            Completed_Count += 1          
+        A9 = form.A9.data
+        if A9 == 'Completed':  
+            Completed_Count += 1      
+        A10 = form.A10.data
+        if A10 == 'Completed':  
+            Completed_Count += 1 
+        A11 = form.A11.data
+        if A11 == 'Completed':  
+            Completed_Count += 1
+        A12 = form.A12.data  
+        if A12 == 'Completed':  
+            Completed_Count += 1
+        A13 = form.A13.data  
+        if A13 == 'Completed':  
+            Completed_Count += 1
+        A14 = form.A14.data  
+        if A14 == 'Completed':  
+            Completed_Count += 1
+        A15 = form.A15.data
+        if A15 == 'Completed':  
+            Completed_Count += 1
+        A16 = form.A16.data
+        if A16 == 'Completed':  
+            Completed_Count += 1
+        A17 = form.A17.data
+        if A17 == 'Completed':  
+            Completed_Count += 1       
+        A18 = form.A18.data
+        if A18 == 'Completed':  
+            Completed_Count += 1          
+        A19 = form.A19.data
+        if A19 == 'Completed':  
+            Completed_Count += 1      
+        A20 = form.A20.data
+        if A20 == 'Completed':  
+            Completed_Count += 1 
+        A21 = form.A21.data
+        if A21 == 'Completed':  
+            Completed_Count += 1
+        A22 = form.A22.data  
+        if A22 == 'Completed':  
+            Completed_Count += 1
+        A23 = form.A23.data  
+        if A23 == 'Completed':  
+            Completed_Count += 1
+        A24 = form.A24.data  
+        if A24 == 'Completed':  
+            Completed_Count += 1
+        A25 = form.A25.data
+        if A25 == 'Completed':  
+            Completed_Count += 1
+        A26 = form.A26.data
+        if A26 == 'Completed':  
+            Completed_Count += 1
+        A27 = form.A27.data
+        if A27 == 'Completed':  
+            Completed_Count += 1       
+        A28 = form.A28.data
+        if A28 == 'Completed':  
+            Completed_Count += 1          
+        A29 = form.A29.data
+        if A29 == 'Completed':  
+            Completed_Count += 1      
+        A30 = form.A30.data
+        if A30 == 'Completed':  
+            Completed_Count += 1 
+        A31 = form.A31.data
+        if A31 == 'Completed':  
+            Completed_Count += 1
+        A32 = form.A32.data  
+        if A32 == 'Completed':  
+            Completed_Count += 1
+        A33 = form.A33.data  
+        if A33 == 'Completed':  
+            Completed_Count += 1
+        A34 = form.A34.data  
+        if A34 == 'Completed':  
+            Completed_Count += 1
+        A35 = form.A35.data
+        if A35 == 'Completed':  
+            Completed_Count += 1
+        A36 = form.A36.data
+        if A36 == 'Completed':  
+            Completed_Count += 1
+        A37 = form.A37.data
+        if A37 == 'Completed':  
+            Completed_Count += 1       
+        A38 = form.A38.data
+        if A38 == 'Completed':  
+            Completed_Count += 1          
+        A39 = form.A39.data
+        if A39 == 'Completed':  
+            Completed_Count += 1      
+        try:
+            db.execute('UPDATE reactdashboardtable \
+                         SET Completed_Count=?, A1=?, A2=?, A3=?, A4=?, A5=?, A6=?, A7=?, A8=?, A9=?, A10=?, A11=?, A12=?, A13=?, A14=?, A15=?, A16=?, A17=?, A18=?, A19=?, A20=?, A21=?, A22=?, A23=?, A24=?, A25=?, A26=?, A27=?, A28=?, A29=?, A30=?, A31=?, A32=?, A33=?, A34=?, A35=?, A36=?, A37=?, A38=?, A39=? \
+                        WHERE Email = ?', (Completed_Count, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39, Email))                        
+            db.commit()
+        except Exception as e:
+            print(e)
+
+        form.A1.data = A1   
+        form.A2.data = A2   
+        form.A3.data = A3   
+        form.A4.data = A4   
+        form.A5.data = A5 
+        form.A6.data = A6 
+        form.A7.data = A7 
+        form.A8.data = A8 
+        form.A9.data = A9 
+        form.A10.data = A10 
+        form.A11.data = A21   
+        form.A12.data = A22   
+        form.A13.data = A23   
+        form.A14.data = A24   
+        form.A15.data = A25 
+        form.A16.data = A26 
+        form.A17.data = A27 
+        form.A18.data = A28 
+        form.A19.data = A29 
+        form.A20.data = A20 
+        form.A21.data = A21   
+        form.A22.data = A22   
+        form.A23.data = A23   
+        form.A24.data = A24   
+        form.A25.data = A25 
+        form.A26.data = A26 
+        form.A27.data = A27 
+        form.A28.data = A28 
+        form.A29.data = A29 
+        form.A30.data = A30 
+        form.A31.data = A31   
+        form.A32.data = A32   
+        form.A33.data = A33   
+        form.A34.data = A34   
+        form.A35.data = A35 
+        form.A36.data = A36 
+        form.A37.data = A37 
+        form.A38.data = A38 
+        form.A39.data = A39 
+                        
+        return render_template('reactstudygroupupdate.html',
+                                form=form)
+    else:        
+        db = get_db()
+        Email = session.get('tempemail', None)
+        try: 
+            user_cur = db.execute('SELECT Name, Email, Password, Completed_Count, \
+                                     A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, \
+                                     A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, \
+                                     A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, \
+                                     A31, A32, A33, A34, A35, A36, A37, A38, A39 \
+                                from reactdashboardtable \
+                                where Email = ?', [Email])
+        except Exception as e:
+            print('Exception: ',e)
+
+        res = user_cur.fetchall()
+
+        for row in res:
+            Name  = row[0]
+            Email = row[1]
+            Password = row[2]
+            Completed_Count = row[3]                        
+            A1 = row[4]
+            A2 = row[5]
+            A3 = row[6]
+            A4 = row[7]
+            A5 = row[8]
+            A6 = row[9]
+            A7 = row[10]
+            A8 = row[11]
+            A9 = row[12]
+            A10 = row[13]
+            A11 = row[14]
+            A12 = row[15]
+            A13 = row[16]
+            A14 = row[17]
+            A15 = row[18]
+            A16 = row[19]
+            A17 = row[20]
+            A18 = row[21]
+            A19 = row[22]
+            A20 = row[23]
+            A21 = row[24]
+            A22 = row[25]
+            A23 = row[26]
+            A24 = row[27]
+            A25 = row[28]
+            A26 = row[29]
+            A27 = row[30]
+            A28 = row[31]
+            A29 = row[32]
+            A30 = row[33]
+            A31 = row[34]
+            A32 = row[35]
+            A33 = row[36]
+            A34 = row[37]
+            A35 = row[38]
+            A36 = row[39]
+            A37 = row[40]
+            A38 = row[41]
+            A39 = row[42]
+                        
+        form.Email.data = Email
+        form.Password.data = Password 
+        form.A1.data = A1
+        form.A2.data = A2
+        form.A3.data = A3
+        form.A4.data = A4
+        form.A5.data = A5
+        form.A6.data = A6
+        form.A7.data = A7
+        form.A8.data = A8
+        form.A9.data = A9
+        form.A10.data = A10
+        form.A11.data = A11
+        form.A12.data = A12
+        form.A13.data = A13
+        form.A14.data = A14
+        form.A15.data = A15
+        form.A16.data = A16
+        form.A17.data = A17
+        form.A18.data = A18
+        form.A19.data = A19
+        form.A20.data = A20
+        form.A21.data = A21
+        form.A22.data = A22
+        form.A23.data = A23
+        form.A24.data = A24
+        form.A25.data = A25
+        form.A26.data = A26
+        form.A27.data = A27
+        form.A28.data = A28
+        form.A29.data = A29
+        form.A30.data = A30
+        form.A31.data = A31
+        form.A32.data = A32
+        form.A33.data = A33
+        form.A34.data = A34
+        form.A35.data = A35
+        form.A36.data = A36
+        form.A37.data = A37
+        form.A38.data = A38
+        form.A39.data = A39
+
+        return render_template('reactstudygroupupdate.html',
                                 form=form,
                                 Email=Email)
 
