@@ -1368,9 +1368,10 @@ def reactstudygroupupdate():
             A37 = row[40]
             A38 = row[41]
             A39 = row[42]
-                        
+            
         form.Email.data = Email
-        form.Password.data = Password 
+        print('password',row[2])
+        form.Password.data = Password       
         form.A1.data = A1
         form.A2.data = A2
         form.A3.data = A3
