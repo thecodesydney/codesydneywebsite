@@ -1,0 +1,192 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="text-center">
+  <h6></h6>
+  <img
+    src="{{ url_for('static', filename='img/Odin.png') }}"
+    width="500px"
+    class="mb-2 img-fluid"
+  />
+</div>
+
+<div class="text-center">
+  <h1>
+    The Odin Project Study Group
+  </h1>
+</div>
+<p style="margin: 30px;"></p>
+
+<table
+  style="margin-left: 20px;"
+  id="example"
+  class="table table-striped table-bordered"
+  cellspacing="0"
+  width="100%"
+>
+  <tbody>
+    <tr>
+      <td>What is The Odin Project?</td>
+      <td>
+        <a
+          href="https://www.theodinproject.com/"
+          target="_blank"
+        >
+          Link to the site
+        </a>
+      </td>
+    <tr>
+      <td>Intake</td>
+      <td>Unlimited</td>
+    </tr>
+    <tr>
+      <td>Target Audience</td>
+      <td>
+        Complete Beginners who are not sure as yet whether coding is for them.
+      </td>
+    </tr>
+    <tr>
+      <td>Pace</td>
+      <td>
+        Do it at your own pace but share your progress in our slack channel.
+      </td>
+    </tr>
+    <tr>
+      <td>Slack</td>
+      <td>
+        <a
+          href="https://join.slack.com/t/codesydney/shared_invite/enQtMzA4ODcyOTUyMDY0LTFlZDAyZjgwZmIzY2VmMzA0MjllOWI3YmE1NGZiNzQ5NGNmNjlhMGE5MTE1ZDA2NTU2OGRkZWQyYTQ3NDZmZGM"
+          target="_blank"
+          >Link to Code.Sydney's Slack Channel</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p></p>
+<p></p>
+
+
+<br />
+<div class="text-center">
+  <h1>
+    Course Outline
+  </h1>
+</div>
+<p style="margin: 30px;"></p>
+
+<table
+  style="margin-left: 20px;"
+  id="example"
+  class="table table-striped table-bordered"
+  cellspacing="0"
+  width="100%"
+>
+  <tbody>
+    <tr><td>[Foundations] 1. How this Course Will Work</td></tr>
+    <tr><td>[Foundations] 2. Introduction to Web Development</td></tr>
+    <tr><td>[Foundations] 3. Motivation and Mindset</td></tr>
+    <tr><td>[Foundations] 4. Asking For Help</td></tr>
+    <tr><td>[Foundations] 5. Join the Odin Community</td></tr>
+    <tr><td>[Foundations] 6. How Does the Web Work?</td></tr>
+    <tr><td>[Installations] 1. Installation Overview</td></tr>
+    <tr><td>[Installations] 2. Prerequisites</td></tr>
+    <tr><td>[Installations] 3. Text Editors</td></tr>
+    <tr><td>[Installations] 4. Command Line Basics</td></tr>
+    <tr><td>[Installations] 5. Setting Up Git</td></tr>
+    <tr><td>[Git Basics] 1. Introduction to Git</td></tr>
+    <tr><td>[Git Basics]2. Git Basics</td></tr>
+    <tr><td>[HTML Foundations] 1. Introduction to HTML and CSS</td></tr>
+    <tr><td>[HTML Foundations] 2. Elements and Tags</td></tr>
+    <tr><td>[HTML Foundations] 3. HTML Boilerplate</td></tr>
+    <tr><td>[HTML Foundations] 4. Working with Text</td></tr>
+    <tr><td>[HTML Foundations] 5. Lists</td></tr>
+    <tr><td>[HTML Foundations] 6. Links and Images</td></tr>
+    <tr><td>[HTML Foundations] 7. Commit Messages</td></tr>
+    <tr><td>[HTML Foundations] 8. Project: Recipes</td></tr>
+    <tr><td>[CSS Foundations] 1. CSS Foundations</td></tr>
+    <tr><td>[CSS Foundations] 2. Inspecting HTML and CSS</td></tr>
+    <tr><td>[CSS Foundations] 3. The Box Model</td></tr>
+    <tr><td>[CSS Foundations] 4. Block and Inline</td></tr>
+    <tr><td>[Flexbox] 1. Introduction to Flexbox</td></tr>
+    <tr><td>[Flexbox] 2. Growing and Shrinking</td></tr>
+    <tr><td>[Flexbox] 3. Axes</td></tr>
+    <tr><td>[Flexbox] 4. Alignment</td></tr>
+    <tr><td>[Flexbox] 5. Project: Landing Page</td></tr>
+    <tr><td>[JavaScript Basics] 1. Fundamentals Part 1</td></tr>
+    <tr><td>[JavaScript Basics] 2. Fundamentals Part 2</td></tr>
+    <tr><td>[JavaScript Basics] 3. JavaScript Developer Tools</td></tr>
+    <tr><td>[JavaScript Basics] 4. Fundamentals Part 3</td></tr>
+    <tr><td>[JavaScript Basics] 5. Problem Solving</td></tr>
+    <tr><td>[JavaScript Basics] 6. Understanding Errors</td></tr>
+    <tr><td>[JavaScript Basics] 7. Project: Rock Paper Scissors</td></tr>
+    <tr><td>[JavaScript Basics] 8. Clean Code</td></tr>
+    <tr><td>[JavaScript Basics] 9. Installing Node.js</td></tr>
+    <tr><td>[JavaScript Basics] 10. Fundamentals Part 4</td></tr>
+    <tr><td>[JavaScript Basics] 11. DOM Manipulation and Events</td></tr>
+    <tr><td>[JavaScript Basics] 12. Revisiting Rock Paper Scissors</td></tr>
+    <tr><td>[JavaScript Basics] 13. Project: Etch-a-Sketch</td></tr>
+    <tr><td>[JavaScript Basics] 14. Fundamentals Part 5</td></tr>
+    <tr><td>[JavaScript Basics] 15. Project: Calculator</td></tr>
+  </tbody>
+</table>
+<p></p>
+
+<br />
+<div class="text-center">
+  <h1>
+    Learning Progress Tracker
+  </h1>
+</div>
+<p style="margin: 30px;"></p>
+
+<p>
+  <a
+    href="{{ url_for('odinstudygrouplogin') }}"
+    style="font-size: 20px; color: rgb(67, 119, 185); margin-left: 100px;"
+    ><u>Login</u></a
+  >
+  <a
+    href="{{ url_for('odinstudygroupregister') }}"
+    style="font-size: 20px; color: rgb(67, 119, 185); margin-left: 5px;"
+    ><u>Register</u></a
+  >
+</p>
+
+<div>
+  <table
+    style="
+      font-size: 17px;
+      width: 76%;
+      text-align: left;
+      font-weight: normal;
+      margin-left: 100px;
+    "
+    border="0"
+  >
+    <tr>
+      <th>Trainee</th>
+      <th>Progress</th>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+    {% for fccampers in fccamperslist %}
+    <tr>
+      <td>{% print fccampers[0] %}</td>
+      <td>{% print fccampers[1] %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="spacing"></div>
+
+<script src="static/js/jquery.min.js"></script>
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/js/smart-forms.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<!-- Contact Ends -->
+
+{% endblock content %}
