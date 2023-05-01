@@ -1,7 +1,7 @@
 aniso8601==7.0.0
 attrs==19.1.0
 Click==7.0
-Flask==1.1.1
+Flask==2.3.2
 Flask-Cors==3.0.8
 flask-restplus==0.12.1
 Flask-SQLAlchemy==2.4.0
